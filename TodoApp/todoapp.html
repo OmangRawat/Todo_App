@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todoapp.css">
+    <title>Todo App</title>
+</head>
+<body>
+    <section class="heading">
+        <h2>Your Personal Task Handler</h2>
+    </section>
+    <section id="calender">
+        <button id="previous"><</button>
+        <div id="calender_toggle">
+            <h3 id="month_year">January 2023</h3>
+            <table class="calender_mainbody">
+                <thead id="weekdays">
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="dates"></tbody>
+            </table>
+        </div>
+        <button id="next">></button>
+    </section>
+    <section id="modalbox"></section>
+    <section id="modal_todo_box"><div id="in_modal_todo_box" class="in_modal_todo_box"></div></section>
+    <script src="Calender.js"></script>
+</body>
+</html>

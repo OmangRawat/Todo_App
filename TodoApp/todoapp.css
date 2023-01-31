@@ -1,0 +1,244 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.heading {
+  text-align: center;
+  margin-top: 2vh;
+  color: black;
+  font-size: larger;
+}
+
+#calender {
+  padding: 5vh;
+  display: flex;
+}
+#calender #calender_toggle {
+  align-items: center;
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+#calender #calender_toggle #month_year {
+  text-align: center;
+  font-size: 4vh;
+  font-size: x-large;
+  margin: 3vh;
+  color: blue;
+}
+#calender .calender_mainbody {
+  margin: auto;
+}
+#calender .calender_mainbody tr, #calender .calender_mainbody th, #calender .calender_mainbody td {
+  box-shadow: 0.25vh 0.25vh 0.25vh 0.25vh white;
+  border: 1px double rgb(251, 72, 72);
+  padding: 0.5vh;
+  text-align: center;
+}
+#calender .calender_mainbody th, #calender .calender_mainbody td {
+  min-height: 4vh;
+  min-width: 7vw;
+  color: blue;
+  font-size: medium;
+  border: 0.5vh solid blue;
+  border-radius: 0.35rem;
+}
+#calender .calender_mainbody th .todo_add_btn, #calender .calender_mainbody td .todo_add_btn {
+  visibility: hidden;
+  color: red;
+  border: none;
+  background-color: transparent;
+  font-weight: bolder;
+}
+#calender .calender_mainbody td:hover {
+  color: red;
+}
+#calender .calender_mainbody td:hover .todo_add_btn {
+  visibility: visible;
+}
+#calender .calender_mainbody td:hover .todo_add_btn:hover {
+  border: 2px red solid;
+  border-radius: 1rem;
+}
+#calender .calender_mainbody .today {
+  background-color: blue;
+  color: white;
+}
+#calender #previous, #calender #next {
+  width: 5vh;
+  height: 5vh;
+  border-radius: 0.5rem;
+  background-color: blue;
+  color: white;
+}
+#calender #previous {
+  left: 0;
+}
+#calender #right {
+  right: 0;
+}
+
+#modalbox {
+  position: absolute;
+  width: 100%;
+}
+#modalbox #in_m_box {
+  width: 60vw;
+  max-height: 35vh;
+  margin: auto;
+  padding: 5vh;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 1rem;
+  overflow-y: auto;
+}
+#modalbox #in_m_box .todo_add_btn {
+  background-color: rgb(255, 0, 0);
+  color: white;
+  padding: 0.5vh;
+  margin-top: 1vh;
+  border-radius: 0.35rem;
+  border: none;
+  box-shadow: 5px 5px 5px black;
+}
+#modalbox #in_m_box #no_todos {
+  margin-top: 2vh;
+  color: blue;
+}
+#modalbox #in_m_box #items_grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2vh;
+  padding-top: 3vh;
+}
+#modalbox #in_m_box #items_grid .todo_item {
+  position: relative;
+  background-color: aqua;
+  color: white;
+  max-height: 5vh;
+  border-radius: 0.5rem;
+  padding: 0.5vh;
+  box-shadow: 3px 3px 3px rgb(162, 160, 160);
+}
+#modalbox #in_m_box #items_grid .todo_item .mark_as_done_btn {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  top: -1vh;
+  right: -1vw;
+  border: none;
+  background-color: blue;
+  color: white;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 1px black;
+  padding: 0.5vh;
+}
+#modalbox #in_m_box #items_grid .todo_item .completed_task {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  top: -1vh;
+  right: -1vw;
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 1px black;
+  padding: 0.5vh;
+}
+
+#modal_todo_box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(3, 3, 3, 0.8);
+  display: flex;
+  visibility: hidden;
+}
+#modal_todo_box .in_modal_todo_box {
+  position: relative;
+  opacity: 1;
+  margin: auto;
+  width: 40vw;
+  height: 30vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.35rem;
+  padding: 2vh;
+}
+#modal_todo_box .in_modal_todo_box p {
+  margin-bottom: 2vh;
+  font-size: larger;
+  font-weight: bold;
+}
+#modal_todo_box .in_modal_todo_box .close_btn {
+  position: absolute;
+  top: -0.5vh;
+  right: -0.5vw;
+  height: 2vh;
+  width: 2vh;
+  border-radius: 1rem;
+  background-color: red;
+  color: white;
+  border: none;
+}
+#modal_todo_box .in_modal_todo_box .add_todo_form {
+  display: block;
+}
+#modal_todo_box .in_modal_todo_box .add_todo_form input {
+  display: block;
+  margin-bottom: 2vh;
+  height: 20vh;
+  width: 100%;
+  box-shadow: 2px 2px 2px grey;
+}
+#modal_todo_box .in_modal_todo_box .add_todo_form button {
+  background-color: blue;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 1vh;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px black;
+}
+#modal_todo_box .in_modal_todo_box .show_todo_item {
+  height: 20vh;
+  color: blue;
+  box-shadow: 2px 2px 2px 2px grey;
+  border-radius: 0.5rem;
+  padding: 1vh;
+  overflow-y: scroll;
+}
+#modal_todo_box .in_modal_todo_box .mark_as_done_btn {
+  position: absolute;
+  bottom: 2vh;
+  right: 2vw;
+  border: none;
+  background-color: blue;
+  color: white;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 2px black;
+  padding: 1vh;
+}
+#modal_todo_box .in_modal_todo_box .completed_task {
+  position: absolute;
+  bottom: 2vh;
+  right: 2vw;
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 2px black;
+  padding: 1vh;
+}/*# sourceMappingURL=todoapp.css.map */
